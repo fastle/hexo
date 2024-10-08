@@ -23,13 +23,35 @@ ZAP 全称 OWASP Zed Attack Proxy, 是世界上最受欢迎的免费安全工具
 
 ZAP 的每个“project”都是一个会话， 每次打开 ZAP 都会新建一个会话， 可以选择关闭时是否保存。
 
-![](images/zapnew.png)
+![](/images/zapnew.png)
 
 ## Getting Started
-当前情况下，ZAP 可以使用自动扫描和手动扫描。 自动扫描执行傻瓜式的渗透测试， 可以进行自动扫描无需配置代理。
+当前情况下，ZAP 可以使用自动扫描和手动扫描。 
+
+### 自动扫描
+
+自动扫描执行傻瓜式的渗透测试， 可以进行自动扫描无需配置代理。
 
 自动扫描结束后可以看到警报。
 
 这里简单试一下我们之前做过的 DVWA 靶场， 扫描结果如下。
 
-![](images/zap_dvwa.png)
+![](/images/zap_dvwa.png)
+
+可以看到自动扫描没通过 login 扫描到我们想要的页面， 原因是被动扫描期间无法发现受登录页保护的任何页面，因为除非已配置 ZAP 的身份验证功能，否则 ZAP 将不会处理所需的身份验证。
+
+### 手动扫描
+
+手动扫描需要配置浏览器代理或者使用带有浏览器驱动的 Chrome 或者 Firefox ， 但是这个 Chrome 驱动有概率版本不符，需要重新下载 （这里我自己试了一下 [驱动下载教程](https://blog.csdn.net/atgjyygyamd/article/details/126272046) 的方法， 没有找到合适的驱动。 所以我使用 Firefox。 
+
+如果选择了启动 HUD 则可在浏览器中看到实时的检测效果如图。
+
+![](/images/zap_uhd.png)
+
+在两边状态栏可以实时看到网站中存在的漏洞， 点击可获取详细信息。
+
+## 配置代理
+
+如果是对于 Firefox 或者 Chrome 配置代理， 可以看这个博客。 [代理设置教程](https://www.cnblogs.com/fanf/p/17262093.html)
+
+对于 Windows 下的 Edge 不会配， 搜到的就是对网络加代理， 但是效果不好， 会的教教我。
