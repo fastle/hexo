@@ -894,3 +894,40 @@ detection:
 
 
 - 94 rules, 
+
+
+
+
+- 有两种需要enrich 的情况， 一个是使用Security 和 OpenSSH/Operational ,需要增加
+
+```yaml
+processors:
+    - add_tags:
+        tags:["abnormalLogon"]
+```
+
+- 另一种是使用Microsoft-Windows-TerminalServices-LocalSessionManager/Operational， 需要增加
+
+```yaml
+processors:
+    - enrich_process:
+
+```
+
+- DNS Sone Transfer Failure Detected
+```yaml
+logsource:
+    product: windows
+    service: dns_server
+    definition: Requirements Microsoft-Windows-DNS-Server/Analytical
+    detection:
+    selection:
+        EventID: 6004
+        DNSQuestionName:42.42.42.42
+        DNSQuestionType: 1
+        DNSResponseType: 1
+        DNSResponseName: 42.42.42.42
+        DNSResponseIP: 42.42.42.42
+        DNSResponseTTL: 0
+```
+- 
