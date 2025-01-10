@@ -548,7 +548,7 @@ func main() {
     if nodeName == "" {
         panic("NODE_NAME environment variable not set")
     }
-
+    
     // 加载Kubernetes配置，同Controller部分类似
     config, err := clientcmd.BuildConfigFromFlags("", "")
     if err!= nil {
