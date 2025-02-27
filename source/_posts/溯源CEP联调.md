@@ -92,7 +92,8 @@ kubectl apply -f /data/deployment/uhs-packages/nodeport.yaml
 
 目录在 `/agent/beats3/libbeat/processors/edr_trace/trace_task.go`
 
-实现其中的 `dealTraceTask(guid string, taskID string)` 函数，该函数会在每次资源 Create 或 Update 的时候执行一次。 期望行为是根据 `guid` 进行溯源， 在上传的事件中添加字段保存 `taskID` 信息。
+实现其中的 `dealTraceTask(guid string,
+ taskID string)` 函数，该函数会在每次资源 Create 或 Update 的时候执行一次。 期望行为是根据 `guid` 进行溯源， 在上传的事件中添加字段保存 `taskID` 信息。
 
 ## controller
 
@@ -105,4 +106,4 @@ type TraceInfo struct {
     Guid string
 }
 ```
-
+我是一个一个一个一个一个一个一个一个一个一个一个一个一个一个     爱问放假啊我放假啊我   发i哦飞机娃儿佛i静安王佛i   阿文i附件为偶发我今儿  发觉为覅覅我发我i发安抚误解了史蒂夫贾文娟佛我i附件为覅哦iiii为发我发我阿飞
